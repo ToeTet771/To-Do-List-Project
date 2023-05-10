@@ -1,15 +1,17 @@
 body{
-    background-color: rgb(23, 155, 161);
-    height:200vh;
+    background: url(https://images.unsplash.com/photo-1683526976156-1a3f1a315049?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1772&q=80);
+    background-size: cover;
+    height:150vh;
     width: 100vw;
     margin: 0;
     padding: 0;
 }
 
 .box{
+    background: url(https://images.unsplash.com/photo-1683659636705-a028691fa4de?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=810&q=80);
+    background-size: cover;
     max-width: 250px;
-    margin: 70px auto;
-    background: white;
+    margin: 100px auto;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 5px 5px 15px -5px rgba(0,0,0,0.3);
@@ -20,6 +22,26 @@ body{
     align-items: center;
     min-height: 70px;
 }
+
+.item input[type='text']{
+    height: 2rem;
+    width: 70%;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.item button{
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid #3d3d3d;
+}
+
+.item p{
+    color: #000000;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
 
 input[type="checkbox"]{
     margin: 20px;
