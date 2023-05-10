@@ -1,0 +1,32 @@
+body{
+    background-color: rgb(23, 155, 161);
+    height:200vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.box{
+    max-width: 250px;
+    margin: 70px auto;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px -5px rgba(0,0,0,0.3);
+}
+
+.item{
+    display: flex;
+    align-items: center;
+    min-height: 70px;
+}
+
+input[type="checkbox"]{
+    margin: 20px;
+}
+
+/* if the input-checkbox is checked, the following para will be smt */
+input:checked+p {                   
+    text-decoration: line-through;
+    text-decoration-color:rgb(205, 10, 59);
+}
