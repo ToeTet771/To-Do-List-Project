@@ -9,15 +9,25 @@ const mongoose = require("mongoose");
 const date = require("./date.js"); //!get data from local own package
 const todayDate = date(); //!get data what it exports
 
-//!mongoDB
+//!mongoDB local
 const url = "mongodb://127.0.0.1:27017/todolistDB";
 
+//!mongoDB online
+const uri = "mongodb+srv://totoro:totoro@cluster0.cukhued.mongodb.net/todolistDB";
+
+
 mongoose
-  .connect(url)
+  .connect(uri)
   .then(() => app.listen(port, () => {
-    console.log(`Server is running on port ${port} and successfully connected to DB`);
+    console.log(`Server is running on port ${port} and successfully connected to Online DB`);
   }))
-  .catch((err) => console.log(err));
+  .catch(() => {
+    mongoose
+    .connect(url)
+    .then(() => app.listen(port, () => {
+      console.log(`Server is running on port ${port} and successfully connected to Local DB`);
+    }))
+  });
 
 const todoSchema = new mongoose.Schema({
   task: {
