@@ -14,11 +14,12 @@ const url = "mongodb://127.0.0.1:27017/todolistDB";
 
 mongoose
   .connect(url)
-  .then(() => console.log('connected to DB'))
+  .then(() => app.listen(port, () => {
+    console.log(`Server is running on port ${port} and successfully connected to DB`);
+  }))
   .catch((err) => console.log(err));
 
 const todoSchema = new mongoose.Schema({
-  id: Number,
   task: {
     type: String,
     minlength: [1,'task need to add!!'],
@@ -64,18 +65,31 @@ app.post("/", (req, res) => {
   newItems.reverse();
 
   let todoo = new Todo({
-    id: newItems.length,
     task: newItem,
   });
-  console.log(todoo);
 
   todoo
   .save()
   .then(() => {res.redirect("/")})
   .catch((err) => {console.log(err)});
+});
+
+app.post('/delete',(req, res) => {
+  const name = req.body.checkbox;
+  
+  newItems.forEach(item => {
+    if(item == name){
+      newItems.splice(newItems.indexOf(item), 1);
+    };
+  });
+
+  Todo.deleteOne({task: name})
+  .then(() => {res.redirect('/')})
+  .catch(err => {console.log(err)});
 
 });
 
-app.listen(port, () => {
-  console.log(`Server is up and running on port ${port}`);
-});
+
+
+
+
